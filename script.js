@@ -1,15 +1,15 @@
 const clients = {
-    n: "Cola X",
+    n: 1,
     clients_names: ["Juan", "Ruben", "Joan", "Edison"]
 };
 
 const clients2 = {
-    n: "Cola Y",
+    n: 2,
     clients_names: ["Juanito", "Pepe", "Rubencito", "Edisito"]
 };
 
 const clients3 = {
-    n: "Cola Z",
+    n: 3,
     clients_names: ["ñammian", "coco", "juanchito", "deimian"]
 };
 
@@ -25,7 +25,7 @@ async function simulate_bank_queue(clients){
 
             let time = Math.floor(Math.random() * (times.length));
             setTimeout(()=>{
-                times[time] <= 5000 ? resolve(`Salió ${client} - Cola ${clients.n}`) : reject(`Tiempo de Espera Agotado - Cola ${clients.n}`);
+                times[time] <= 5000 ? resolve(`Salió ${client} - Cola ${clients.n}`) : reject(`Tiempo de Espera Agotado para ${client}. - Cola ${clients.n}`);
             }, times[time]);
     
         });
@@ -34,7 +34,6 @@ async function simulate_bank_queue(clients){
             console.log(await my_promise);
         }catch(error){
             console.log(error);
-            break;
         }
 
     }
